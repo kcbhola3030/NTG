@@ -1,0 +1,821 @@
+Microsoft Windows [Version 10.0.22621.1555]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Windows\System32>cd ..
+
+C:\Windows>cd ..
+
+C:\>cd C:\Program Files\MySQL\MySQL Server 8.0\bin
+
+C:\Program Files\MySQL\MySQL Server 8.0\bin>mysqld
+2023-04-22T01:34:45.988151Z 0 [System] [MY-010116] [Server] C:\Program Files\MySQL\MySQL Server 8.0\bin\mysqld.exe (mysqld 8.0.33) starting as process 6676
+2023-04-22T01:34:45.991333Z 0 [Warning] [MY-010091] [Server] Can't create test file C:\Program Files\MySQL\MySQL Server 8.0\data\mysqld_tmp_file_case_insensitive_test.lower-test
+2023-04-22T01:34:45.991439Z 0 [Warning] [MY-010091] [Server] Can't create test file C:\Program Files\MySQL\MySQL Server 8.0\data\mysqld_tmp_file_case_insensitive_test.lower-test
+2023-04-22T01:34:45.991714Z 0 [ERROR] [MY-013276] [Server] Failed to set datadir to 'C:\Program Files\MySQL\MySQL Server 8.0\data\' (OS errno: 2 - No such file or directory)
+2023-04-22T01:34:45.992393Z 0 [ERROR] [MY-010119] [Server] Aborting
+2023-04-22T01:34:45.992519Z 0 [System] [MY-010910] [Server] C:\Program Files\MySQL\MySQL Server 8.0\bin\mysqld.exe: Shutdown complete (mysqld 8.0.33)  MySQL Community Server - GPL.
+
+C:\Program Files\MySQL\MySQL Server 8.0\bin>mysql -u root -p
+Enter password: ********
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 8
+Server version: 8.0.33 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show variables like 'basedir';
++---------------+------------------------------------------+
+| Variable_name | Value                                    |
++---------------+------------------------------------------+
+| basedir       | C:\Program Files\MySQL\MySQL Server 8.0\ |
++---------------+------------------------------------------+
+1 row in set (0.02 sec)
+
+mysql> exiy
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'exiy' at line 1
+mysql> exit
+Bye
+
+C:\Program Files\MySQL\MySQL Server 8.0\bin>mysqlsh
+MySQL Shell 8.0.33
+
+Copyright (c) 2016, 2023, Oracle and/or its affiliates.
+Oracle is a registered trademark of Oracle Corporation and/or its affiliates.
+Other names may be trademarks of their respective owners.
+
+Type '\help' or '\?' for help; '\quit' to exit.
+ MySQL  JS > \c root@localhost:3301
+Creating a session to 'root@localhost:3301'
+Please provide the password for 'root@localhost:3301': ********
+MySQL Error 2003 (HY000): Can't connect to MySQL server on 'localhost:3301' (10061)
+ MySQL  JS > \c root@localhost:3306
+Creating a session to 'root@localhost:3306'
+Please provide the password for 'root@localhost:3306': ********
+Save password for 'root@localhost:3306'? [Y]es/[N]o/Ne[v]er (default No): y
+Fetching schema names for auto-completion... Press ^C to stop.
+Your MySQL connection id is 10
+Server version: 8.0.33 MySQL Community Server - GPL
+No default schema selected; type \use <schema> to set one.
+ MySQL  localhost:3306 ssl  JS > \quit
+Bye!
+
+C:\Program Files\MySQL\MySQL Server 8.0\bin>clear
+'clear' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Program Files\MySQL\MySQL Server 8.0\bin>mysqld --initialize-insecure --basedir="C:\\Program Files\\MySQL\\MySQL Server 8.0" --datadir="C:\\mysql2\\Data"
+
+C:\Program Files\MySQL\MySQL Server 8.0\bin>mysqld --install MysqlS2 --defaults-file="C:\mysql2\my.ini"
+Service successfully installed.
+
+C:\Program Files\MySQL\MySQL Server 8.0\bin>net start MysqlS2
+The MysqlS2 service is starting.
+The MysqlS2 service was started successfully.
+
+
+C:\Program Files\MySQL\MySQL Server 8.0\bin>mysql -u root -p -P3307
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 8
+Server version: 8.0.33 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> set password 'root@localhost' =password("admin123");
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''root@localhost' =password("admin123")' at line 1
+mysql> set password 'root@localhost'=password("admin123");
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''root@localhost'=password("admin123")' at line 1
+mysql> set password 'root'@'localhost'=password("admin123");
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''root'@'localhost'=password("admin123")' at line 1
+mysql> SET PASSWORD FOR 'root'@'localhost' = 'admin123';
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> flush previliges;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'previliges' at line 1
+mysql> flush privileges;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> exit
+Bye
+
+C:\Program Files\MySQL\MySQL Server 8.0\bin>mysql -u root -p -P3307
+Enter password: ********
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 9
+Server version: 8.0.33 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> status
+--------------
+mysql  Ver 8.0.33 for Win64 on x86_64 (MySQL Community Server - GPL)
+
+Connection id:          9
+Current database:
+Current user:           root@localhost
+SSL:                    Cipher in use is TLS_AES_256_GCM_SHA384
+Using delimiter:        ;
+Server version:         8.0.33 MySQL Community Server - GPL
+Protocol version:       10
+Connection:             localhost via TCP/IP
+Server characterset:    utf8mb4
+Db     characterset:    utf8mb4
+Client characterset:    cp850
+Conn.  characterset:    cp850
+TCP port:               3307
+Binary data as:         Hexadecimal
+Uptime:                 7 min 36 sec
+
+Threads: 2  Questions: 13  Slow queries: 0  Opens: 131  Flush tables: 3  Open tables: 47  Queries per second avg: 0.028
+--------------
+
+mysql> exit
+Bye
+
+C:\Program Files\MySQL\MySQL Server 8.0\bin>\c root@localhost:3306
+'\c' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Program Files\MySQL\MySQL Server 8.0\bin>mysqlsh
+MySQL Shell 8.0.33
+
+Copyright (c) 2016, 2023, Oracle and/or its affiliates.
+Oracle is a registered trademark of Oracle Corporation and/or its affiliates.
+Other names may be trademarks of their respective owners.
+
+Type '\help' or '\?' for help; '\quit' to exit.
+ MySQL  JS > \c root@localhost:3306
+Creating a session to 'root@localhost:3306'
+Fetching schema names for auto-completion... Press ^C to stop.
+Your MySQL connection id is 12
+Server version: 8.0.33 MySQL Community Server - GPL
+No default schema selected; type \use <schema> to set one.
+ MySQL  localhost:3306 ssl  JS > rs = dba.createReplicaSet('replicaset')
+A new replicaset with instance 'YASH:3306' will be created.
+
+* Checking MySQL instance at YASH:3306
+
+This instance reports its own address as YASH:3306
+
+NOTE: Some configuration options need to be fixed:
++----------------------------------------+---------------+----------------+--------------------------------------------------+
+| Variable                               | Current Value | Required Value | Note                                             |
++----------------------------------------+---------------+----------------+--------------------------------------------------+
+| binlog_transaction_dependency_tracking | COMMIT_ORDER  | WRITESET       | Update the server variable                       |
+| enforce_gtid_consistency               | OFF           | ON             | Update read-only variable and restart the server |
+| gtid_mode                              | OFF           | ON             | Update read-only variable and restart the server |
++----------------------------------------+---------------+----------------+--------------------------------------------------+
+
+Some variables need to be changed, but cannot be done dynamically on the server.
+ERROR: YASH:3306: Instance must be configured and validated with dba.configureReplicaSetInstance() before it can be used in a replicaset.
+Dba.createReplicaSet: Instance check failed (MYSQLSH 51150)
+ MySQL  localhost:3306 ssl  JS > cluster = dba.createCluster('cluster')
+A new InnoDB Cluster will be created on instance 'YASH:3306'.
+
+Validating instance configuration at localhost:3306...
+
+ERROR: New account(s) with proper source address specification to allow remote connection from all instances must be created to manage the cluster.
+Dba.createCluster: User 'root' can only connect from 'localhost'. (RuntimeError)
+ MySQL  localhost:3306 ssl  JS > dba.configureInstance('root@localhost')
+Please provide the password for 'root@localhost': ********
+Save password for 'root@localhost'? [Y]es/[N]o/Ne[v]er (default No): y
+Configuring local MySQL instance listening at port 3306 for use in an InnoDB cluster...
+
+This instance reports its own address as YASH:3306
+Clients and other cluster members will communicate with it through this address by default. If this is not correct, the report_host MySQL system variable should be changed.
+
+ERROR: User 'root' can only connect from 'localhost'. New account(s) with proper source address specification to allow remote connection from all instances must be created to manage the cluster.
+
+1) Create remotely usable account for 'root' with same grants and password
+2) Create a new admin account for InnoDB cluster with minimal required grants
+3) Ignore and continue
+4) Cancel
+
+Please select an option [1]: 2
+Please provide an account name (e.g: icroot@%) to have it created with the necessary
+privileges or leave empty and press Enter to cancel.
+Account Name: icroot
+Password for new account: ********
+Confirm password: ********
+
+applierWorkerThreads will be set to the default value of 4.
+
+NOTE: Some configuration options need to be fixed:
++----------------------------------------+---------------+----------------+--------------------------------------------------+
+| Variable                               | Current Value | Required Value | Note                                             |
++----------------------------------------+---------------+----------------+--------------------------------------------------+
+| binlog_transaction_dependency_tracking | COMMIT_ORDER  | WRITESET       | Update the server variable                       |
+| enforce_gtid_consistency               | OFF           | ON             | Update read-only variable and restart the server |
+| gtid_mode                              | OFF           | ON             | Update read-only variable and restart the server |
++----------------------------------------+---------------+----------------+--------------------------------------------------+
+
+Some variables need to be changed, but cannot be done dynamically on the server.
+Do you want to perform the required configuration changes? [y/n]: y
+Do you want to restart the instance after configuring it? [y/n]: y
+
+Creating user icroot@%.
+Account icroot@% was successfully created.
+
+Configuring instance...
+The instance 'YASH:3306' was configured to be used in an InnoDB cluster.
+Restarting MySQL...
+NOTE: MySQL server at YASH:3306 was restarted.
+ MySQL  localhost:3306 ssl  JS > \c icroot@@localhost
+Invalid URI: Illegal character [@] found at position 7
+\connect [--mx|--mysqlx|--mc|--mysql] [--ssh <sshuri>] <URI>
+ MySQL  localhost:3306 ssl  JS > \c icroot@@localhost:3306
+Invalid URI: Illegal character [@] found at position 7
+\connect [--mx|--mysqlx|--mc|--mysql] [--ssh <sshuri>] <URI>
+ MySQL  localhost:3306 ssl  JS > \c icroot@localhost
+Creating a session to 'icroot@localhost'
+Please provide the password for 'icroot@localhost': ********
+Save password for 'icroot@localhost'? [Y]es/[N]o/Ne[v]er (default No): y
+Fetching schema names for auto-completion... Press ^C to stop.
+Closing old connection...
+Your MySQL connection id is 8 (X protocol)
+Server version: 8.0.33 MySQL Community Server - GPL
+No default schema selected; type \use <schema> to set one.
+ MySQL  localhost:33060+ ssl  JS > cluster = dba.createCluster('cluster')
+A new InnoDB Cluster will be created on instance 'YASH:3306'.
+
+Validating instance configuration at localhost:3306...
+
+This instance reports its own address as YASH:3306
+
+Instance configuration is suitable.
+NOTE: Group Replication will communicate with other members using 'YASH:3306'. Use the localAddress option to override.
+
+* Checking connectivity and SSL configuration...
+
+Creating InnoDB Cluster 'cluster' on 'YASH:3306'...
+
+Adding Seed Instance...
+Cluster successfully created. Use Cluster.addInstance() to add MySQL instances.
+At least 3 instances are needed for the cluster to be able to withstand up to
+one server failure.
+
+<Cluster:cluster>
+ MySQL  localhost:33060+ ssl  JS > dba.configureInstance('icroot@localhost:3307')
+Please provide the password for 'icroot@localhost:3307': ********
+Dba.configureInstance: Access denied for user 'icroot'@'localhost' (using password: YES) (MySQL Error 1045)
+ MySQL  localhost:33060+ ssl  JS > \c root@localhost:3307
+Creating a session to 'root@localhost:3307'
+Please provide the password for 'root@localhost:3307': ********
+Save password for 'root@localhost:3307'? [Y]es/[N]o/Ne[v]er (default No): y
+Fetching schema names for auto-completion... Press ^C to stop.
+Closing old connection...
+Your MySQL connection id is 12
+Server version: 8.0.33 MySQL Community Server - GPL
+No default schema selected; type \use <schema> to set one.
+ MySQL  localhost:3307 ssl  JS > dba.configureInstance('root@localhost:3307')
+Configuring local MySQL instance listening at port 3307 for use in an InnoDB cluster...
+
+This instance reports its own address as YASH:3307
+Clients and other cluster members will communicate with it through this address by default. If this is not correct, the report_host MySQL system variable should be changed.
+
+ERROR: User 'root' can only connect from 'localhost'. New account(s) with proper source address specification to allow remote connection from all instances must be created to manage the cluster.
+
+1) Create remotely usable account for 'root' with same grants and password
+2) Create a new admin account for InnoDB cluster with minimal required grants
+3) Ignore and continue
+4) Cancel
+
+Please select an option [1]: 2
+Please provide an account name (e.g: icroot@%) to have it created with the necessary
+privileges or leave empty and press Enter to cancel.
+Account Name: ic2root
+Password for new account: ********
+Confirm password: ********
+
+applierWorkerThreads will be set to the default value of 4.
+
+NOTE: Some configuration options need to be fixed:
++----------------------------------------+---------------+----------------+--------------------------------------------------+
+| Variable                               | Current Value | Required Value | Note                                             |
++----------------------------------------+---------------+----------------+--------------------------------------------------+
+| binlog_transaction_dependency_tracking | COMMIT_ORDER  | WRITESET       | Update the server variable                       |
+| enforce_gtid_consistency               | OFF           | ON             | Update read-only variable and restart the server |
+| gtid_mode                              | OFF           | ON             | Update read-only variable and restart the server |
++----------------------------------------+---------------+----------------+--------------------------------------------------+
+
+Some variables need to be changed, but cannot be done dynamically on the server.
+Do you want to perform the required configuration changes? [y/n]: y
+Do you want to restart the instance after configuring it? [y/n]: y
+
+Creating user ic2root@%.
+Account ic2root@% was successfully created.
+
+Configuring instance...
+The instance 'YASH:3307' was configured to be used in an InnoDB cluster.
+Restarting MySQL...
+NOTE: MySQL server at YASH:3307 was restarted.
+ MySQL  localhost:3307 ssl  JS > \c icroot@localhost:3306
+Creating a session to 'icroot@localhost:3306'
+Please provide the password for 'icroot@localhost:3306': ********
+Save password for 'icroot@localhost:3306'? [Y]es/[N]o/Ne[v]er (default No): y
+Fetching schema names for auto-completion... Press ^C to stop.
+Closing old connection...
+Your MySQL connection id is 34
+Server version: 8.0.33 MySQL Community Server - GPL
+No default schema selected; type \use <schema> to set one.
+ MySQL  localhost:3306 ssl  JS > cluster.status
+<Function:status>
+ MySQL  localhost:3306 ssl  JS > cluster.status()
+{
+    "clusterName": "cluster",
+    "defaultReplicaSet": {
+        "name": "default",
+        "primary": "YASH:3306",
+        "ssl": "REQUIRED",
+        "status": "OK_NO_TOLERANCE",
+        "statusText": "Cluster is NOT tolerant to any failures.",
+        "topology": {
+            "YASH:3306": {
+                "address": "YASH:3306",
+                "memberRole": "PRIMARY",
+                "mode": "R/W",
+                "readReplicas": {},
+                "replicationLag": "applier_queue_applied",
+                "role": "HA",
+                "status": "ONLINE",
+                "version": "8.0.33"
+            }
+        },
+        "topologyMode": "Single-Primary"
+    },
+    "groupInformationSourceMember": "YASH:3306"
+}
+ MySQL  localhost:3306 ssl  JS > cluster.addInstance('ic2root@localhost:3307')
+ERROR: Unable to connect to the target instance 'localhost:3307'. Please verify the connection settings, make sure the instance is available and try again.
+Cluster.addInstance: Could not open connection to 'localhost:3307': Access denied for user 'ic2root'@'localhost' (using password: NO) (MySQL Error 1045)
+ MySQL  localhost:3306 ssl  JS > cluster.addInstance('ic2root@localhost')
+ERROR: Unable to connect to the target instance 'localhost'. Please verify the connection settings, make sure the instance is available and try again.
+Cluster.addInstance: Could not open connection to 'localhost': Access denied for user 'ic2root'@'localhost' (using password: NO) (MySQL Error 1045)
+ MySQL  localhost:3306 ssl  JS > \c ic2root@localhost:3307
+Creating a session to 'ic2root@localhost:3307'
+Please provide the password for 'ic2root@localhost:3307': ********
+Save password for 'ic2root@localhost:3307'? [Y]es/[N]o/Ne[v]er (default No): y
+Fetching schema names for auto-completion... Press ^C to stop.
+Closing old connection...
+Your MySQL connection id is 10
+Server version: 8.0.33 MySQL Community Server - GPL
+No default schema selected; type \use <schema> to set one.
+ MySQL  localhost:3307 ssl  JS > dba.configureInstance('ic2root@localhost')
+Please provide the password for 'ic2root@localhost': ********
+Dba.configureInstance: Access denied for user 'ic2root'@'localhost' (using password: YES) (MySQL Error 1045)
+ MySQL  localhost:3307 ssl  JS > dba.configureInstance('ic2root@localhost')
+Please provide the password for 'ic2root@localhost': ********
+Dba.configureInstance: Access denied for user 'ic2root'@'localhost' (using password: YES) (MySQL Error 1045)
+ MySQL  localhost:3307 ssl  JS > dba.configureInstance('ic2root@localhost:3307')
+Configuring local MySQL instance listening at port 3307 for use in an InnoDB cluster...
+
+This instance reports its own address as YASH:3307
+Clients and other cluster members will communicate with it through this address by default. If this is not correct, the report_host MySQL system variable should be changed.
+
+applierWorkerThreads will be set to the default value of 4.
+
+The instance 'YASH:3307' is valid to be used in an InnoDB cluster.
+The instance 'YASH:3307' is already ready to be used in an InnoDB cluster.
+
+Successfully enabled parallel appliers.
+ MySQL  localhost:3307 ssl  JS > \c icroot@localhost
+Creating a session to 'icroot@localhost'
+Fetching schema names for auto-completion... Press ^C to stop.
+Closing old connection...
+Your MySQL connection id is 39 (X protocol)
+Server version: 8.0.33 MySQL Community Server - GPL
+No default schema selected; type \use <schema> to set one.
+ MySQL  localhost:33060+ ssl  JS > cluster.status()
+{
+    "clusterName": "cluster",
+    "defaultReplicaSet": {
+        "name": "default",
+        "primary": "YASH:3306",
+        "ssl": "REQUIRED",
+        "status": "OK_NO_TOLERANCE",
+        "statusText": "Cluster is NOT tolerant to any failures.",
+        "topology": {
+            "YASH:3306": {
+                "address": "YASH:3306",
+                "memberRole": "PRIMARY",
+                "mode": "R/W",
+                "readReplicas": {},
+                "replicationLag": "applier_queue_applied",
+                "role": "HA",
+                "status": "ONLINE",
+                "version": "8.0.33"
+            }
+        },
+        "topologyMode": "Single-Primary"
+    },
+    "groupInformationSourceMember": "YASH:3306"
+}
+ MySQL  localhost:33060+ ssl  JS > cluster.addInstance('YASH:3307')
+ERROR: MySQL Error 1045 (28000): Access denied for user 'icroot'@'YASH' (using password: YES): Credentials for user icroot at YASH:3307 must be the same as in the rest of the cluster.
+Cluster.addInstance: Could not open connection to 'YASH:3307': Access denied for user 'icroot'@'YASH' (using password: YES) (MySQL Error 1045)
+ MySQL  localhost:33060+ ssl  JS > cluster.addInstance('ic2root@localhost')
+ERROR: Unable to connect to the target instance 'localhost'. Please verify the connection settings, make sure the instance is available and try again.
+Cluster.addInstance: Could not open connection to 'localhost': Access denied for user 'ic2root'@'localhost' (using password: NO) (MySQL Error 1045)
+ MySQL  localhost:33060+ ssl  JS > cluster.addInstance('ic2root@localhost:3307')
+
+NOTE: The target instance 'YASH:3307' has not been pre-provisioned (GTID set is empty). The Shell is unable to decide whether incremental state recovery can correctly provision it.
+The safest and most convenient way to provision a new instance is through automatic clone provisioning, which will completely overwrite the state of 'YASH:3307' with a physical snapshot from an existing cluster member. To use this method by default, set the 'recoveryMethod' option to 'clone'.
+
+The incremental state recovery may be safely used if you are sure all updates ever executed in the cluster were done with GTIDs enabled, there are no purged transactions and the new instance contains the same GTID set as the cluster or a subset of it. To use this method by default, set the 'recoveryMethod' option to 'incremental'.
+
+
+Please select a recovery method [C]lone/[I]ncremental recovery/[A]bort (default Clone): c
+Validating instance configuration at localhost:3307...
+
+This instance reports its own address as YASH:3307
+
+Instance configuration is suitable.
+NOTE: Group Replication will communicate with other members using 'YASH:3307'. Use the localAddress option to override.
+
+* Checking connectivity and SSL configuration...
+A new instance will be added to the InnoDB Cluster. Depending on the amount of
+data on the cluster this might take from a few seconds to several hours.
+
+Adding instance to the cluster...
+
+Monitoring recovery process of the new cluster member. Press ^C to stop monitoring and let it continue in background.
+Clone based state recovery is now in progress.
+
+NOTE: A server restart is expected to happen as part of the clone process. If the
+server does not support the RESTART command or does not come back after a
+while, you may need to manually start it back.
+
+* Waiting for clone to finish...
+NOTE: YASH:3307 is being cloned from yash:3306
+** Stage DROP DATA: Completed
+** Clone Transfer
+    FILE COPY  ############################################################  100%  Completed
+    PAGE COPY  ############################################################  100%  Completed
+    REDO COPY  ############################################################  100%  Completed
+
+NOTE: YASH:3307 is shutting down...
+
+* Waiting for server restart... ready
+* YASH:3307 has restarted, waiting for clone to finish...
+** Stage RESTART: Completed
+* Clone process has finished: 73.67 MB transferred in about 1 second (~73.67 MB/s)
+
+State recovery already finished for 'YASH:3307'
+
+The instance 'YASH:3307' was successfully added to the cluster.
+
+ MySQL  localhost:33060+ ssl  JS > cluster.status()
+{
+    "clusterName": "cluster",
+    "defaultReplicaSet": {
+        "name": "default",
+        "primary": "YASH:3306",
+        "ssl": "REQUIRED",
+        "status": "OK_NO_TOLERANCE",
+        "statusText": "Cluster is NOT tolerant to any failures.",
+        "topology": {
+            "YASH:3306": {
+                "address": "YASH:3306",
+                "memberRole": "PRIMARY",
+                "mode": "R/W",
+                "readReplicas": {},
+                "replicationLag": "applier_queue_applied",
+                "role": "HA",
+                "status": "ONLINE",
+                "version": "8.0.33"
+            },
+            "YASH:3307": {
+                "address": "YASH:3307",
+                "memberRole": "SECONDARY",
+                "mode": "R/O",
+                "readReplicas": {},
+                "replicationLag": "applier_queue_applied",
+                "role": "HA",
+                "status": "ONLINE",
+                "version": "8.0.33"
+            }
+        },
+        "topologyMode": "Single-Primary"
+    },
+    "groupInformationSourceMember": "YASH:3306"
+}
+ MySQL  localhost:33060+ ssl  JS > \quit
+Bye!
+
+C:\Program Files\MySQL\MySQL Server 8.0\bin>\c icroot@localhost
+'\c' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Program Files\MySQL\MySQL Server 8.0\bin>mysqlsh
+MySQL Shell 8.0.33
+
+Copyright (c) 2016, 2023, Oracle and/or its affiliates.
+Oracle is a registered trademark of Oracle Corporation and/or its affiliates.
+Other names may be trademarks of their respective owners.
+
+Type '\help' or '\?' for help; '\quit' to exit.
+ MySQL  JS > \c icroot@localhost
+Creating a session to 'icroot@localhost'
+Fetching schema names for auto-completion... Press ^C to stop.
+Your MySQL connection id is 67 (X protocol)
+Server version: 8.0.33 MySQL Community Server - GPL
+No default schema selected; type \use <schema> to set one.
+ MySQL  localhost:33060+ ssl  JS > cluster.status()
+ReferenceError: cluster is not defined
+ MySQL  localhost:33060+ ssl  JS > cluster.status();
+ReferenceError: cluster is not defined
+ MySQL  localhost:33060+ ssl  JS > \c icroot@localhost:3306
+Creating a session to 'icroot@localhost:3306'
+Fetching schema names for auto-completion... Press ^C to stop.
+Closing old connection...
+Your MySQL connection id is 69
+Server version: 8.0.33 MySQL Community Server - GPL
+No default schema selected; type \use <schema> to set one.
+ MySQL  localhost:3306 ssl  JS > cluster.status()
+ReferenceError: cluster is not defined
+ MySQL  localhost:3306 ssl  JS > \c icroot@locahost
+Creating a session to 'icroot@locahost'
+Please provide the password for 'icroot@locahost': ********
+MySQL Error 2005: No such host is known 'locahost'
+ MySQL  localhost:3306 ssl  JS > \c icroot@locahost
+Creating a session to 'icroot@locahost'
+Please provide the password for 'icroot@locahost': ********
+MySQL Error 2005: No such host is known 'locahost'
+ MySQL  localhost:3306 ssl  JS > \c icroot@localhost
+Creating a session to 'icroot@localhost'
+Fetching schema names for auto-completion... Press ^C to stop.
+Closing old connection...
+Your MySQL connection id is 70 (X protocol)
+Server version: 8.0.33 MySQL Community Server - GPL
+No default schema selected; type \use <schema> to set one.
+ MySQL  localhost:33060+ ssl  JS > cluster.status()
+ReferenceError: cluster is not defined
+ MySQL  localhost:33060+ ssl  JS > status()
+ReferenceError: status is not defined
+ MySQL  localhost:33060+ ssl  JS > \c root@localhost:3306
+Creating a session to 'root@localhost:3306'
+Fetching schema names for auto-completion... Press ^C to stop.
+Closing old connection...
+Your MySQL connection id is 72
+Server version: 8.0.33 MySQL Community Server - GPL
+No default schema selected; type \use <schema> to set one.
+ MySQL  localhost:3306 ssl  JS > rs = dba.createReplicaSet('replicaset')
+Dba.createReplicaSet: Unable to create replicaset. The instance 'YASH:3306' already belongs to an InnoDB cluster. Use dba.getCluster() to access it. (MYSQLSH 51305)
+ MySQL  localhost:3306 ssl  JS > dba.getCluster()
+<Cluster:cluster>
+ MySQL  localhost:3306 ssl  JS > cluster.status()
+ReferenceError: cluster is not defined
+ MySQL  localhost:3306 ssl  JS > Cluster.status();
+ReferenceError: Cluster is not defined
+ MySQL  localhost:3306 ssl  JS > cluster.status();
+ReferenceError: cluster is not defined
+ MySQL  localhost:3306 ssl  JS > \mysql
+Unknown command: '\mysql'
+ MySQL  localhost:3306 ssl  JS > \mysql
+Unknown command: '\mysql'
+ MySQL  localhost:3306 ssl  JS > \c root@localhost:3306
+Creating a session to 'root@localhost:3306'
+Fetching schema names for auto-completion... Press ^C to stop.
+Closing old connection...
+Your MySQL connection id is 77
+Server version: 8.0.33 MySQL Community Server - GPL
+No default schema selected; type \use <schema> to set one.
+ MySQL  localhost:3306 ssl  JS > \mysql
+Unknown command: '\mysql'
+ MySQL  localhost:3306 ssl  JS > /mysql
+SyntaxError: Invalid regular expression: missing /
+ MySQL  localhost:3306 ssl  JS > \mysql
+Unknown command: '\mysql'
+ MySQL  localhost:3306 ssl  JS > \?
+The Shell Help is organized in categories and topics. To get help for a
+specific category or topic use: \? <pattern>
+
+The <pattern> argument should be the name of a category or a topic.
+
+The pattern is a filter to identify topics for which help is required, it can
+use the following wildcards:
+
+- ? matches any single character.
+- * matches any character sequence.
+
+The following are the main help categories:
+
+ - AdminAPI       The AdminAPI is an API that enables configuring and managing
+                  InnoDB Clusters, ReplicaSets, ClusterSets, among other
+                  things.
+ - Shell Commands Provides details about the available built-in shell commands.
+ - ShellAPI       Contains information about the shell and util global objects
+                  as well as the mysql module that enables executing SQL on
+                  MySQL Servers.
+ - SQL Syntax     Entry point to retrieve syntax help on SQL statements.
+ - X DevAPI       Details the mysqlx module as well as the capabilities of the
+                  X DevAPI which enable working with MySQL as a Document Store
+
+The available topics include:
+
+- The dba global object and the classes available at the AdminAPI.
+- The mysqlx module and the classes available at the X DevAPI.
+- The mysql module and the global objects and classes available at the
+  ShellAPI.
+- The functions and properties of the classes exposed by the APIs.
+- The available shell commands.
+- Any word that is part of an SQL statement.
+- Command Line - invoking built-in shell functions without entering interactive
+  mode.
+
+SHELL COMMANDS
+
+The shell commands allow executing specific operations including updating the
+shell configuration.
+
+The following shell commands are available:
+
+ - \                   Start multi-line input when in SQL mode.
+ - \connect    (\c)    Connects the shell to a MySQL server and assigns the
+                       global session.
+ - \disconnect         Disconnects the global session.
+ - \edit       (\e)    Launch a system editor to edit a command to be executed.
+ - \exit               Exits the MySQL Shell, same as \quit.
+ - \help       (\?,\h) Prints help information about a specific topic.
+ - \history            View and edit command line history.
+ - \js                 Switches to JavaScript processing mode.
+ - \nopager            Disables the current pager.
+ - \nowarnings (\w)    Don't show warnings after every statement.
+ - \option             Allows working with the available shell options.
+ - \pager      (\P)    Sets the current pager.
+ - \py                 Switches to Python processing mode.
+ - \quit       (\q)    Exits the MySQL Shell.
+ - \reconnect          Reconnects the global session.
+ - \rehash             Refresh the autocompletion cache.
+ - \show               Executes the given report with provided options and
+                       arguments.
+ - \source     (\.)    Loads and executes a script from a file.
+ - \sql                Executes SQL statement or switches to SQL processing
+                       mode when no statement is given.
+ - \status     (\s)    Print information about the current global session.
+ - \system     (\!)    Execute a system shell command.
+ - \use        (\u)    Sets the active schema.
+ - \warnings   (\W)    Show warnings after every statement.
+ - \watch              Executes the given report with provided options and
+                       arguments in a loop.
+
+GLOBAL OBJECTS
+
+The following modules and objects are ready for use when the shell starts:
+
+ - dba     Used for InnoDB Cluster, ReplicaSet, and ClusterSet administration.
+ - mysql   Support for connecting to MySQL servers using the classic MySQL
+           protocol.
+ - mysqlx  Used to work with X Protocol sessions using the MySQL X DevAPI.
+ - os      Gives access to functions which allow to interact with the operating
+           system.
+ - plugins Plugin to manage MySQL Shell plugins
+ - session Represents the currently open MySQL session.
+ - shell   Gives access to general purpose functions and properties.
+ - sys     Gives access to system specific parameters.
+ - util    Global object that groups miscellaneous tools like upgrade checker
+           and JSON import.
+
+For additional information on these global objects use: <object>.help()
+
+EXAMPLES
+\? AdminAPI
+      Displays information about the AdminAPI.
+
+\? \connect
+      Displays usage details for the \connect command.
+
+\? checkInstanceConfiguration
+      Displays usage details for the dba.checkInstanceConfiguration function.
+
+\? sql syntax
+      Displays the main SQL help categories.
+ MySQL  localhost:3306 ssl  JS > \sql
+Switching to SQL mode... Commands end with ;
+Fetching global names for auto-completion... Press ^C to stop.
+ MySQL  localhost:3306 ssl  SQL > show databases;
++-------------------------------+
+| Database                      |
++-------------------------------+
+| information_schema            |
+| mysql                         |
+| mysql_innodb_cluster_metadata |
+| performance_schema            |
+| sys                           |
++-------------------------------+
+5 rows in set (0.0024 sec)
+ MySQL  localhost:3306 ssl  SQL > \c root@localhost3307
+Creating a session to 'root@localhost3307'
+Please provide the password for 'root@localhost3307':
+Cancelled
+ MySQL  localhost:3306 ssl  SQL > \c root@localhost:3307
+Creating a session to 'root@localhost:3307'
+Fetching global names for auto-completion... Press ^C to stop.
+Closing old connection...
+Your MySQL connection id is 40
+Server version: 8.0.33 MySQL Community Server - GPL
+No default schema selected; type \use <schema> to set one.
+ MySQL  localhost:3307 ssl  SQL > \c root@localhost:3306
+Creating a session to 'root@localhost:3306'
+Fetching global names for auto-completion... Press ^C to stop.
+Closing old connection...
+Your MySQL connection id is 79
+Server version: 8.0.33 MySQL Community Server - GPL
+No default schema selected; type \use <schema> to set one.
+ MySQL  localhost:3306 ssl  SQL > show databases;
++-------------------------------+
+| Database                      |
++-------------------------------+
+| information_schema            |
+| mysql                         |
+| mysql_innodb_cluster_metadata |
+| performance_schema            |
+| sys                           |
++-------------------------------+
+5 rows in set (0.0022 sec)
+ MySQL  localhost:3306 ssl  SQL > create databases ads;
+ERROR: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'databases ads' at line 1
+ MySQL  localhost:3306 ssl  SQL > create database ads;
+Query OK, 1 row affected (0.0117 sec)
+ MySQL  localhost:3306 ssl  SQL > create table students(name varchar(20),prn varchar(20) PRIMARY KEY);
+ERROR: 1046 (3D000): No database selected
+ MySQL  localhost:3306 ssl  SQL > use ads
+Default schema set to `ads`.
+Fetching global names, object names from `ads` for auto-completion... Press ^C to stop.
+ MySQL  localhost:3306 ssl  ads  SQL > create table students(name varchar(20),prn varchar(20) PRIMARY KEY);
+Query OK, 0 rows affected (0.0348 sec)
+ MySQL  localhost:3306 ssl  ads  SQL > insert into students values("kc","2020BTECS00102")
+                                    -> ;
+Query OK, 1 row affected (0.0157 sec)
+ MySQL  localhost:3306 ssl  ads  SQL > insert into students values("kb","2020BTECS00101");
+Query OK, 1 row affected (0.0115 sec)
+ MySQL  localhost:3306 ssl  ads  SQL > \c root@localhost:3307
+Creating a session to 'root@localhost:3307'
+Fetching global names for auto-completion... Press ^C to stop.
+Closing old connection...
+Your MySQL connection id is 42
+Server version: 8.0.33 MySQL Community Server - GPL
+No default schema selected; type \use <schema> to set one.
+ MySQL  localhost:3307 ssl  SQL > show databases
+                               -> ;
++-------------------------------+
+| Database                      |
++-------------------------------+
+| ads                           |
+| information_schema            |
+| mysql                         |
+| mysql_innodb_cluster_metadata |
+| performance_schema            |
+| sys                           |
++-------------------------------+
+6 rows in set (0.0025 sec)
+ MySQL  localhost:3307 ssl  SQL > use ads;
+Default schema set to `ads`.
+Fetching global names, object names from `ads` for auto-completion... Press ^C to stop.
+ MySQL  localhost:3307 ssl  ads  SQL > select * from students;
++------+----------------+
+| name | prn            |
++------+----------------+
+| kb   | 2020BTECS00101 |
+| kc   | 2020BTECS00102 |
++------+----------------+
+2 rows in set (0.0015 sec)
+ MySQL  localhost:3307 ssl  ads  SQL > \c root@localhost:3306
+Creating a session to 'root@localhost:3306'
+Fetching global names for auto-completion... Press ^C to stop.
+Closing old connection...
+Your MySQL connection id is 82
+Server version: 8.0.33 MySQL Community Server - GPL
+No default schema selected; type \use <schema> to set one.
+ MySQL  localhost:3306 ssl  SQL > use ads;
+Default schema set to `ads`.
+Fetching global names, object names from `ads` for auto-completion... Press ^C to stop.
+ MySQL  localhost:3306 ssl  ads  SQL > select * from students;
++------+----------------+
+| name | prn            |
++------+----------------+
+| kb   | 2020BTECS00101 |
+| kc   | 2020BTECS00102 |
++------+----------------+
+2 rows in set (0.0016 sec)
+
+
